@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
-Sitemap: http://underlime.net/sitemap.xml
+Sitemap: https://underlime.net/sitemap.xml
 Host: underlime.net
