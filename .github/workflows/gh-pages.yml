@@ -5,7 +5,7 @@ on:
     branches: [main]
 
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v2
@@ -16,7 +16,7 @@ jobs:
       run: npm ci
     - name: Build site
       run: npm run build
-    - name: Publish generated content to GitHub Pages
+    - name: Publish content to GitHub Pages
       uses: tsunematsu21/actions-publish-gh-pages@v1.0.1
       with:
         dir: build
