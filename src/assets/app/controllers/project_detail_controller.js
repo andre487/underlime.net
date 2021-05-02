@@ -5,9 +5,10 @@ function ProjectDetailController($scope, $routeParams, $location) {
     AppController.setSelectedMenuElement(0);
     $scope.project_code = $routeParams['code'];
 
-    var projectUrl = '/data/project-{0}-{1}.json'
+    var projectUrl = '/data/project-{0}-{1}.json?v={2}'
         .replace('{0}', $scope.project_code)
-        .replace('{1}', $scope.lang);
+        .replace('{1}', $scope.lang)
+        .replace('{2}', window['cache_ver']);
 
     AppController.enablePreloader();
     Ajax.getData(projectUrl, onProjectData, onProjectError);

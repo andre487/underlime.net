@@ -3,8 +3,8 @@ function ProjectBannerController($scope, $http, $compile) {
     var projectCode = $scope.project_code;
     var baseUrl = window['static_url'] + 'project-headers/';
 
-    var stylesUrl = baseUrl + projectCode + '.css';
-    var templateUrl = baseUrl + projectCode + '.html';
+    var stylesUrl = baseUrl + projectCode + '.css?v=' + window['cache_ver'];
+    var templateUrl = baseUrl + projectCode + '.html?v=' + window['cache_ver'];
 
     var stylesNode = $('#project-header-styles');
     if (stylesNode.length)

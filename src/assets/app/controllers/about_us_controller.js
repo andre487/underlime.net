@@ -21,7 +21,7 @@ function AboutUsController($scope) {
     AppController.initShareWidgets();
     initCharactersList();
 
-    var dataUrl = '/data/about-us-' + $scope.lang + '.json';
+    var dataUrl = '/data/about-us-' + $scope.lang + '.json?v=' + window['cache_ver'];
     Ajax.getData(dataUrl, onPageDataLoaded);
 
     var self = this;

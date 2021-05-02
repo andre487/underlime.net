@@ -17,7 +17,7 @@ function IndexController($scope, $location, $routeParams) {
     Effects.startEyeAnimation();
 
     $scope.projects_loaded = false;
-    var url = '/data/index-' + $scope.lang + '.json';
+    var url = '/data/index-' + $scope.lang + '.json?v=' + window['cache_ver'];
     Ajax.getData(url, function (data) {
         $scope.data = data;
 
