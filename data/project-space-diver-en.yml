@@ -1,25 +1,17 @@
 name: Space Diver
 title: Space Diver
 release_date: 2012-03-12
-genre: Fighting
-description: The TOMATO KOMBAT game is the RPG figting with the clans
+genre: Arcade
+description: The Space Diver game is the Arcade with RPG elements
 link_fb: ''
 link_mm: ''
-link_ok: https://odnoklassniki.ru/game/tomato_kombat
-link_vk: https://vk.com/tomato_kombat
-pictures:
-  - image: /media/h_540c9b41.jpg
-    thumbnail: /media/h_540c9b41_small.jpg
-  - image: /media/h_ed8f5476.jpg
-    thumbnail: /media/h_ed8f5476_small.jpg
-  - image: /media/h_2888d6fc.jpg
-    thumbnail: /media/h_2888d6fc_small.jpg
-  - image: /media/h_af64572f.jpg
-    thumbnail: /media/h_af64572f_small.jpg
+link_ok: ''
+link_vk: ''
+pictures: []
 manual: ''
 text: >-
   <p>
-    The TOMATO KOMBAT game is the RPG fighting with the clans.
+    The Space Diver game is the Arcade with RPG elements.
   <p>
     Its client side wrote on the ActionScript 3 with the Adobe Flex.
-    Server-side implemented with PHP and JavaScript and using MySQL and Redis.
+    Server-side implemented with Python and using MySQL and Redis.
