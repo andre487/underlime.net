@@ -154,11 +154,19 @@ function AppController($scope, $rootElement, $window, $location) {
     };
 
     AppController.initShareWidgets = function() {
-        // noinspection JSUnresolvedVariable
-        FB.XFBML.parse(document.getElementById('fb-like-container'));
-        // noinspection JSUnresolvedVariable
-        VK.Widgets.Like('vk_like', {'type': 'mini', 'height': 20});
-        gapi.plusone.render('g-plus', {"size": "medium"});
+        try {
+            // noinspection JSUnresolvedVariable
+            FB.XFBML.parse(document.getElementById('fb-like-container'));
+        } catch (e) {
+            console.error(e);
+        }
+
+        try {
+            // noinspection JSUnresolvedVariable
+            VK.Widgets.Like('vk_like', { 'type': 'mini', 'height': 20 });
+        } catch (e) {
+            console.error(e);
+        }
 
         var twitterText;
         if ($scope.lang == 'ru')
