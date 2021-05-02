@@ -16,10 +16,8 @@ jobs:
       run: npm ci
     - name: Build site
       run: npm run build
-    - name: Create dist dir
-      run: rsync -av --delete build/ ../dist
     - name: Publish content to GitHub Pages
-      uses: andre487/publish-to-orphan-gh-pages@v1.0.0
+      uses: andre487/publish-to-orphan-gh-pages@f931252d109ba0c0198f9812a8cae4f39702615b
       with:
         src_dir: ./build
         dest_dir: .
