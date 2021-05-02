@@ -22,6 +22,7 @@ jobs:
         src_dir: ./build
         dest_dir: .
         branch: gh-pages
-        deploy_key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
+        deploy_private_key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
+        deploy_public_key: ${{ secrets.DEPLOY_PUBLIC_KEY }}
         important_files: '["CNAME", "custom-file.html"]'
         debug: true
