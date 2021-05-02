@@ -11,7 +11,13 @@ const { pipeline } = require('readable-stream');
 const streamQueue = require('streamqueue');
 
 const PROJECT_DIR = path.dirname(__filename);
+
 const ASSETS_DIR = path.join(PROJECT_DIR, 'src', 'assets');
+const LIBS_DIR = path.join(ASSETS_DIR, 'libs');
+const APP_DIR = path.join(ASSETS_DIR, 'app');
+const GALLERIA_DIR = path.join(ASSETS_DIR, 'libs', 'galleria');
+const THEME_DIR = path.join(GALLERIA_DIR, 'themes', 'classic');
+
 const BUILD_DIR = path.join(PROJECT_DIR, 'build');
 
 const queue = streamQueue.bind(null, { objectMode: true });
@@ -39,16 +45,13 @@ const build = gulp.parallel(
             queue(
                 pipeline(
                     queue(
-                        gulp.src(path.join(ASSETS_DIR, 'libs', 'base', 'jquery-1.10.1.min.js')),
-                        gulp.src(path.join(ASSETS_DIR, 'libs', 'base', 'angular-1.1.5.min.js')),
+                        gulp.src(path.join(LIBS_DIR, 'base', 'jquery-1.10.1.min.js')),
+                        gulp.src(path.join(LIBS_DIR, 'base', 'angular-1.1.5.min.js')),
                         pipeline(
                             queue(
-                                gulp.src(path.join(ASSETS_DIR, 'libs', 'base', 'angular-1.1.5-locale_ru-ru.js')),
-                                gulp.src(path.join(ASSETS_DIR, 'libs', 'galleria', 'galleria-1.2.9.js')),
-                                gulp.src(path.join(
-                                    ASSETS_DIR, 'libs', 'galleria',
-                                    'themes', 'classic', 'galleria.classic.js'
-                                ))
+                                gulp.src(path.join(LIBS_DIR, 'base', 'angular-1.1.5-locale_ru-ru.js')),
+                                gulp.src(path.join(GALLERIA_DIR, 'galleria-1.2.9.js')),
+                                gulp.src(path.join(THEME_DIR, 'galleria.classic.js'))
                             ),
                             gulpUglify()
                         )
@@ -57,17 +60,17 @@ const build = gulp.parallel(
                 ),
                 pipeline(
                     queue(
-                        gulp.src(path.join(ASSETS_DIR, 'app', 'ui.js')),
-                        gulp.src(path.join(ASSETS_DIR, 'app', 'effects.js')),
-                        gulp.src(path.join(ASSETS_DIR, 'app', 'data.js')),
-                        gulp.src(path.join(ASSETS_DIR, 'app', 'ajax.js')),
-                        gulp.src(path.join(ASSETS_DIR, 'app', 'controllers', 'app_controller.js')),
-                        gulp.src(path.join(ASSETS_DIR, 'app', 'controllers', 'index_controller.js')),
-                        gulp.src(path.join(ASSETS_DIR, 'app', 'controllers', 'about_us_controller.js')),
-                        gulp.src(path.join(ASSETS_DIR, 'app', 'controllers', 'project_detail_controller.js')),
-                        gulp.src(path.join(ASSETS_DIR, 'app', 'controllers', 'project_banner_controller.js')),
-                        gulp.src(path.join(ASSETS_DIR, 'app', 'controllers', 'error_404_controller.js')),
-                        gulp.src(path.join(ASSETS_DIR, 'app', 'app.js'))
+                        gulp.src(path.join(APP_DIR, 'ui.js')),
+                        gulp.src(path.join(APP_DIR, 'effects.js')),
+                        gulp.src(path.join(APP_DIR, 'data.js')),
+                        gulp.src(path.join(APP_DIR, 'ajax.js')),
+                        gulp.src(path.join(APP_DIR, 'controllers', 'app_controller.js')),
+                        gulp.src(path.join(APP_DIR, 'controllers', 'index_controller.js')),
+                        gulp.src(path.join(APP_DIR, 'controllers', 'about_us_controller.js')),
+                        gulp.src(path.join(APP_DIR, 'controllers', 'project_detail_controller.js')),
+                        gulp.src(path.join(APP_DIR, 'controllers', 'project_banner_controller.js')),
+                        gulp.src(path.join(APP_DIR, 'controllers', 'error_404_controller.js')),
+                        gulp.src(path.join(APP_DIR, 'app.js'))
                     ),
                     gulpUglify(),
                     gulpConcat('_app.min.js')
@@ -87,7 +90,7 @@ const build = gulp.parallel(
                     gulpCleanCss()
                 ),
                 pipeline(
-                    gulp.src(path.join(ASSETS_DIR, 'libs', 'galleria', 'themes', 'classic', 'galleria.classic.css')),
+                    gulp.src(path.join(THEME_DIR, 'galleria.classic.css')),
                     gulpCleanCss()
                 )
             ),
@@ -106,8 +109,8 @@ const build = gulp.parallel(
     function copyGalleriaImages() {
         return pipeline(
             gulp.src([
-                path.join(ASSETS_DIR, 'libs', 'galleria', 'themes', 'classic', '*.gif'),
-                path.join(ASSETS_DIR, 'libs', 'galleria', 'themes', 'classic', '*.png')
+                path.join(THEME_DIR, '*.gif'),
+                path.join(THEME_DIR, '*.png')
             ]),
             gulpCleanDir(path.join(BUILD_DIR, 'assets'), { ext: ['.png', '.gif'] }),
             gulp.dest(path.join(BUILD_DIR, 'assets'))
@@ -137,7 +140,7 @@ const build = gulp.parallel(
     },
     function buildPartials() {
         return pipeline(
-            gulp.src(path.join(ASSETS_DIR, 'app', 'partials', '*')),
+            gulp.src(path.join(APP_DIR, 'partials', '*')),
             gulpHtmlMinify(htmlConfig),
             gulpCleanDir(path.join(BUILD_DIR, 'assets', 'partials')),
             gulp.dest(path.join(BUILD_DIR, 'assets', 'partials'))
@@ -147,11 +150,11 @@ const build = gulp.parallel(
         return pipeline(
             queue(
                 pipeline(
-                    gulp.src(path.join(ASSETS_DIR, 'app', 'project-headers', '*.html')),
+                    gulp.src(path.join(APP_DIR, 'project-headers', '*.html')),
                     gulpHtmlMinify(htmlConfig)
                 ),
                 pipeline(
-                    gulp.src(path.join(ASSETS_DIR, 'app', 'project-headers', '*.css')),
+                    gulp.src(path.join(APP_DIR, 'project-headers', '*.css')),
                     gulpCleanCss()
                 )
             ),
