@@ -5,10 +5,10 @@ game:
     max_exp: 60
     prev_max_exp: 50
   andre:
-    level: 6
-    exp: 61
-    max_exp: 70
-    prev_max_exp: 60
+    level: 5
+    exp: 57
+    max_exp: 60
+    prev_max_exp: 50
   ivan:
     level: 7
     exp: 78
