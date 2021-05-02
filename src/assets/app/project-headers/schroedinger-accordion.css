@@ -1,0 +1,31 @@
+#accordion .layer0 {
+    width: 960px;
+    height: 140px;
+    top: 0;
+    left: -20px;
+    background: url('/media/project-headers/schroedinger-accordion/LAYER_0_BS_BG.png');
+}
+
+#accordion .layer1 {
+    width: 310px;
+    height: 140px;
+    top: 0;
+    left: -15px;
+    background: url('/media/project-headers/schroedinger-accordion/LAYER_1_BS_LEFT.png');
+}
+
+#accordion .layer2 {
+    width: 300px;
+    height: 140px;
+    top: 0;
+    left: 310px;
+    background: url('/media/project-headers/schroedinger-accordion/LAYER_2_BS_LOGO.png');
+}
+
+#accordion .layer3 {
+    width: 310px;
+    height: 140px;
+    top: 0;
+    left: 625px;
+    background: url('/media/project-headers/schroedinger-accordion/LAYER_3_BS_RIGHT.png');
+}

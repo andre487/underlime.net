@@ -1,0 +1,31 @@
+#tomato-kombat .layer0 {
+    width: 960px;
+    height: 140px;
+    top: 0;
+    left: -20px;
+    background: url('/media/project-headers/tomato-kombat/LAYER_0_TK_BG.jpg');
+}
+
+#tomato-kombat .layer1 {
+    width: 310px;
+    height: 140px;
+    top: 0;
+    left: -15px;
+    background: url('/media/project-headers/tomato-kombat/LAYER_1_TK_LEFT.png');
+}
+
+#tomato-kombat .layer2 {
+    width: 300px;
+    height: 140px;
+    top: 0;
+    left: 310px;
+    background: url('/media/project-headers/tomato-kombat/LAYER_2_TK_LOGO.png');
+}
+
+#tomato-kombat .layer3 {
+    width: 310px;
+    height: 140px;
+    top: 0;
+    left: 625px;
+    background: url('/media/project-headers/tomato-kombat/LAYER_3_TK_RIGHT.png');
+}

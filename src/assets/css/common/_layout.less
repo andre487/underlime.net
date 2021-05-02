@@ -1,0 +1,214 @@
+@import "_mixins";
+
+// Параметры тэгов
+html {
+  overflow-y: scroll;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  overflow: visible;
+  font-family: 'Trebuchet MS', 'Helvetica', 'Jamrul', sans-serif;
+  font-size: 14px;
+  color: @text_color;
+}
+
+h1 {
+  font-size: 1.6em;
+  font-weight: normal;
+  margin: 0 0 0.5em 0;
+  color: @header_color;
+}
+
+h2 {
+  font-size: 1.4em;
+  font-weight: normal;
+  margin: 0 0 0.5em 0;
+  color: @header_color;
+}
+
+h3 {
+  font-size: 1.2em;
+  font-weight: normal;
+  margin: 0 0 0.5em 0;
+  color: @header_color;
+}
+
+h4 {
+  font-size: 1.1em;
+  margin: 0 0 0.5em 0;
+  color: @header_color;
+}
+
+h5, h6 {
+  font-size: 1em;
+  margin: 0 0 0.5em 0;
+  color: @header_color;
+}
+
+p {
+  margin: 0 0 0.5em 0;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+a {
+  outline: none;
+  &:link, &:visited {
+    color: @link_color;
+  }
+  &:hover, &:visited:hover {
+    color: @link_hover_color;
+  }
+}
+
+img {
+  border: none;
+}
+
+
+// Каркас страницы
+#page {
+  position: relative;
+  overflow: hidden;
+  min-height: 100%;
+  background: url('@{images_dir}/LIGHT_BG.png');
+}
+
+#page-header-top {
+  height: 45px;
+  background: #474747;
+  overflow: hidden;
+
+  .underlime {
+    font-size: 1.5em;
+    position: absolute;
+    top: 0;
+    right: 10px;
+    text-shadow: 0 -1px 0 black;
+    .vertical-aligned(@height: 45px);
+
+    .under {
+      color: #aaa;
+    }
+
+    .lime {
+      color: @lime_green;
+    }
+  }
+}
+
+#page-header-bottom {
+  height: 65px;
+  overflow: hidden;
+  position: relative;
+}
+
+#top-menu {
+  margin: 5px 0 0 5px;
+
+  li {
+    margin: 0 10px 0 5px;
+  }
+}
+
+#lang-switch {
+  margin: 20px 20px 20px auto;
+}
+
+#page-footer {
+  margin: 50px 0 0 0;
+  height: 55px;
+  overflow: hidden;
+  position: relative;
+  color: #666;
+}
+
+#contact-link {
+  margin: 10px 0 0 10px;
+}
+
+#underlime-copy {
+  width: 300px;
+  height: 55px;
+  line-height: 55px;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: -150px;
+  text-shadow: 0 1px 0 #fff;
+}
+
+#top-anchor {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+  .inner {
+    padding-left: 25px;
+    background: url('@{images_dir}/PAGE_UP.png') no-repeat left center;
+  }
+}
+
+#page-content {
+  overflow: hidden;
+  min-height: 100%;
+}
+
+#contact-popup-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(102, 102, 102, 0.5);
+  display: none;
+}
+
+#contact-popup {
+  z-index: 10;
+  .absolute-aligned(800px, 600px);
+}
+
+#breadcrubms-container {
+  .absolute-aligned-x(920px, @top: 25px);
+}
+
+#breadcrubms {
+  position: relative;
+  font-size: 12px;
+  .vertical-aligned(14px);
+
+  li {
+    margin-right: 20px;
+    text-transform: lowercase;
+  }
+
+  .path, .name {
+    display: block;
+    height: 100%;
+    text-align: center;
+    white-space: nowrap;
+    text-decoration: none;
+  }
+
+  .name {
+    color: black;
+  }
+
+  li:not(:last-child):after {
+    width: 20px;
+    height: 14px;
+    line-height: 14px;
+    font-size: 10px;
+    text-align: center;
+    content: '\25ba';
+    position: absolute;
+    top: 1px;
+    right: -20px;
+  }
+}

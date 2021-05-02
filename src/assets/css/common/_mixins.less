@@ -1,0 +1,44 @@
+// Цвета
+@text_color: #999;
+@header_color: #666;
+@link_color: #666;
+@link_hover_color: #ff3333;
+@lime_green: #5fb504;
+
+
+// Размеры
+@max_fixed_width: 960px;
+
+//Прочее
+@images_dir: '/assets/images';
+
+
+// Примеси
+.centered(@top: 0, @bottom: 0) {
+  margin: @top auto @bottom;
+}
+
+.vertical-aligned(@height) {
+  height: @height;
+  line-height: @height;
+  white-space: nowrap;
+}
+
+.absolute-aligned(@width, @height) {
+  width: @width;
+  height: @height;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -(@height/2) 0 0 -(@width/2);
+}
+
+.absolute-aligned-x(@width, @height: auto, @top: auto, @bottom: auto) {
+  width: @width;
+  height: @height;
+  position: absolute;
+  top: @top;
+  bottom: @bottom;
+  left: 50%;
+  margin-left: (-@width/2);
+}

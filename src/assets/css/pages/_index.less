@@ -1,0 +1,154 @@
+@import "../common/_mixins";
+
+#index-eye {
+  width: 150px;
+  height: 150px;
+  background: url('@{images_dir}/LOGO_LIGHT_LAYER_0.png') no-repeat center top;
+  position: relative;
+  padding-bottom: 80px;
+  cursor: default;
+  .centered();
+
+  #index-eye-label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  #index-eye-apple {
+    width: 150px;
+    height: 150px;
+    background: url('@{images_dir}/LOGO_LIGHT_LAYER_1.png') no-repeat center center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  #index-eye-light {
+    background: url('@{images_dir}/LOGO_LIGHT_LAYER_2.png')  no-repeat center top;
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
+
+  #index-eye-eyelids {
+    width: 150px;
+    height: 150px;
+    background: url('@{images_dir}/LOGO_LIGHT_LAYER_4.png') center top;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    display: none;
+  }
+
+  .underlime-label {
+    text-shadow: 0 1px 0 #fff;
+
+    .underlime {
+      font-size: 2em;
+
+      .under {
+        color: #666;
+      }
+
+      .lime {
+        color: @lime_green;
+      }
+    }
+
+    .games {
+      font-size: 1.14em;
+      color: #aaa;
+    }
+  }
+}
+
+#index-projects {
+  margin: 40px 0 0 0;
+}
+
+#index-projects-list {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  list-style: none;
+
+  li {
+    display: inline-block;
+    vertical-align: top;
+    width: 100px;
+    height: 160px;
+    margin: 0 20px 20px 20px;
+    text-shadow: 0 1px 0 #fff;
+    position: relative;
+  }
+
+  .number {
+    font-size: 1.14em;
+    margin-bottom: 10px;
+  }
+
+  .text {
+    font-size: 0.86em;
+    margin-top: 10px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    line-height: 1em;
+  }
+
+  a {
+    text-decoration: none;
+    text-shadow: 0 1px 0 #fff;
+
+    .text {
+      text-decoration: underline;
+    }
+  }
+
+  img {
+    display: block;
+    .centered();
+  }
+
+  .days-left {
+    color: white;
+    text-shadow: none;
+    width: 100%;
+    position: absolute;
+    top: 65px;
+    left: 0;
+    line-height: 1.2em;
+  }
+
+  .days-left .count {
+    font-size: 1.7em;
+    font-weight: bold;
+  }
+
+  .next-image {
+    width: 100px;
+    height: 100px;
+    background: url('@{images_dir}/EMPTY_PREVIEW.png');
+  }
+
+  .next-icon {
+    width: 100px;
+    height: 100px;
+    background: url('@{images_dir}/RANDOM_ANNOUNCE.png');
+  }
+
+  .soon-image {
+    width: 100px;
+    height: 110px;
+    background: url('@{images_dir}/SOON.png');
+  }
+}

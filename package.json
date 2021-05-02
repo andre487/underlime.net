@@ -4,6 +4,8 @@
   "description": "underlime.net site",
   "main": "build/index.html",
   "scripts": {
+    "dev": "python3 -m http.server 8000 --bind localhost --directory build",
+    "build": "gulp",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,19 +21,20 @@
   "devDependencies": {
     "csp-hash-generator": "0.0.3",
     "csp-parse": "0.0.2",
-    "glob": "^7.1.6",
     "gulp": "^4.0.2",
     "gulp-clean-css": "^4.3.0",
+    "gulp-clean-dir": "^1.0.2",
     "gulp-cli": "^2.3.0",
-    "gulp-compile-handlebars": "^0.6.1",
-    "gulp-copy": "^4.0.1",
-    "gulp-filter": "^7.0.0",
+    "gulp-concat": "^2.6.1",
     "gulp-html-minifier": "^0.1.8",
-    "gulp-rename": "^2.0.0",
-    "handlebars-layouts": "^3.1.4",
+    "gulp-less": "^4.0.1",
+    "gulp-uglify": "^3.0.2",
+    "gulp-yaml": "^2.0.4",
     "lodash.template": "^4.5.0",
     "node-html-parser": "^3.2.0",
-    "rimraf": "^3.0.2",
+    "node-yaml": "^4.0.1",
+    "readable-stream": "^3.6.0",
+    "streamqueue": "^1.1.2",
     "through2": "^4.0.2",
     "yargs-parser": "^20.2.7"
   }

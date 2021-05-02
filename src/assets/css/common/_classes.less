@@ -1,0 +1,177 @@
+@import "_mixins";
+
+// Общие классы
+.angular-block {
+  display: none;
+}
+
+.plain-text {
+  width: @max_fixed_width;
+  .centered();
+}
+
+.horizontal-menu {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  &> li {
+    float: left;
+    position: relative;
+  }
+}
+
+.page-preloader {
+  width: 50px;
+  height: 50px;
+  background: url('@{images_dir}/white-loader.gif');
+  .centered(@top: 20px, @bottom: 20px);
+}
+
+.button {
+  .vertical-aligned(@height: 35px);
+  display: inline-block;
+  text-align: center;
+  background: url('@{images_dir}/BTN_02.png') center -105px;
+  position: relative;
+  padding: 0 10px;
+  text-decoration: none;
+  color: #aaa !important;
+
+  .button-side() {
+    display: block;
+    content: '';
+    width: 5px;
+    height: 35px;
+    position: absolute;
+    top: 0;
+  }
+
+  &:before {
+    .button-side();
+    background: url('@{images_dir}/BTN_01.png') center -105px;
+    left: -5px;
+  }
+
+  &:after {
+    .button-side();
+    background: url('@{images_dir}/BTN_03.png') center -105px;
+    right: -5px;
+  }
+
+  &:hover, &:visited:hover {
+    background-position: center -140px;
+    &:before, &:after {
+      background-position: center -140px;
+    };
+  }
+
+  .active-selected() {
+    background-position: center -175px !important;
+    color: @lime_green !important;
+  }
+
+  &:active, &:visited:active, &.selected {
+    .active-selected();
+    &:before, &:after {
+      .active-selected();
+    }
+  }
+
+  &.light, &.light:before, &.light:after {
+    background-position: center top;
+    color: #666  !important;
+    text-shadow: 0 1px 0 #fff;
+  }
+
+  &.light:hover, &.light:visited:hover {
+    background-position: center -35px;
+    &:before, &:after {
+      background-position: center -35px;
+    }
+  }
+
+  &.light:active, &.light:visited:active, &.light.selected {
+    background-position: center -70px !important;
+    &:before, &:after {
+      background-position: center -70px !important;
+    }
+  }
+}
+
+.switch {
+  width: 80px;
+  height: 25px;
+  background: url('@{images_dir}/SWITCH.png');
+  overflow: hidden;
+
+  .switch-button {
+    width: 40px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    float: left;
+    cursor: pointer;
+    color: #666;
+    text-shadow: 0 1px 0 #fff;
+    text-decoration: none;
+  }
+
+  &:active {
+    background-position: center -25px !important;
+  }
+
+  &.left {
+    background-position: center top;
+  }
+
+  &.right {
+    background-position: center -50px;
+  }
+
+  &.left .switch-button.left,
+  &.right .switch-button.right {
+    color: @lime_green;
+    &:active {
+      color: @lime_green;
+    }
+  }
+
+  &.left .switch-button.right,
+  &.right .switch-button.left {
+    &:active {
+      color: #666;
+    }
+  }
+}
+
+.code {
+  font-family: 'Courier New', monospace;
+}
+
+.columns {
+  overflow: hidden;
+  .column {
+    float: left;
+    overflow: hidden;
+  }
+}
+
+.clear {
+  clear: both;
+  overflow: hidden;
+}
+
+.border-separator-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.border-separator {
+  height: 2px;
+  background: url('@{images_dir}/FOOTER_SEPARATOR.png') top center repeat-x;
+  margin: 0 5px;
+}

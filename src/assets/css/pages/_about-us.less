@@ -1,0 +1,361 @@
+@import "../common/_mixins";
+
+#about-us-header {
+  text-align: center;
+
+  h1 {
+    min-width: 200px;
+    display: inline-block;
+    height: 50px;
+    line-height: 40px;
+    color: white;
+    background: url('@{images_dir}/TITLE_FIELD_02.png');
+    margin: 0;
+    padding: 0 10px;
+    position: relative;
+  }
+
+  .h1-side() {
+    display: block;
+    content: '';
+    width: 40px;
+    height: 50px;
+    position: absolute;
+    top: 0;
+  }
+
+  h1:before {
+    .h1-side();
+    left: -40px;
+    background: url('@{images_dir}/TITLE_FIELD_01.png');
+  }
+
+  h1:after {
+    .h1-side();
+    right: -40px;
+    background: url('@{images_dir}/TITLE_FIELD_03.png');
+  }
+}
+
+#about-us-content {
+  width: 920px;
+  margin: 25px auto 0;
+}
+
+#about-us-left {
+  width: 440px;
+}
+
+#about-us-right {
+  width: 440px;
+  padding: 0 0 0 40px;
+  position: relative;
+  overflow: visible;
+}
+
+.about-us-character {
+  background: no-repeat center center;
+  width: 120px;
+  margin-right: 40px;
+  position: relative;
+
+  .image {
+    width: 120px;
+    height: 160px;
+    background-position: center bottom;
+  }
+
+  &:hover .image {
+    background-position: center top;
+  }
+
+  .level-bar {
+    width: 68px;
+    height: 54px;
+    margin: 0 auto 10px;
+    background: url('@{images_dir}/LEVEL_BAR_OBVIOUS.png');
+    position: relative;
+  }
+
+  &.champion .level-bar {
+    background: url('@{images_dir}/LEVEL_BAR_LEADER.png');
+  }
+
+  .level-label {
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-size: 0.7em;
+    position: absolute;
+    bottom: 1px;
+  }
+
+  .exp-bar {
+    .vertical-aligned(15px);
+    margin: 0 2px 5px;
+    font-size: 0.7em;
+    background: url('@{images_dir}/XP_BAR_03.png') center;
+    position: relative;
+    color: black;
+  }
+
+  .exp-bar-side() {
+    display: block;
+    content: '';
+    width: 2px;
+    height: 15px;
+    position: absolute;
+    top: 0;
+  }
+
+  .exp-bar:before {
+    .exp-bar-side();
+    background: url('@{images_dir}/XP_BAR_01.png');
+    left: -2px;
+  }
+
+  .exp-bar:after {
+    .exp-bar-side();
+    background: url('@{images_dir}/XP_BAR_04.png');
+    right: -2px;
+  }
+
+  .exp-marker {
+    width: 100%;
+    height: 15px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url('@{images_dir}/XP_BAR_02.png');
+    z-index: 1;
+  }
+
+  .exp-label {
+    height: 15px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    padding: 0 2px;
+  }
+
+  .name {
+    margin: 2px 0 0;
+    color: #231f20;
+    font-weight: bold;
+    text-shadow: 0 1px 0 white;
+  }
+
+  .profession {
+    text-shadow: 0 1px 0 white;
+  }
+
+  .animation {
+    .absolute-aligned(@width: 70px, @height: 80px);
+    display: none;
+  }
+
+  &:hover .animation {
+    display: block;
+  }
+
+  .level-up {
+    .absolute-aligned-x(@width: 80px, @height: 40px, @top: 120px);
+    background: url('@{images_dir}/LEVEL_UP_ANIM.gif') no-repeat center top;
+    display: none;
+
+    .plus1 {
+      .absolute-aligned-x(@width: 32px, @height: 20px, @bottom: 0);
+      background: url('@{images_dir}/XP_PLUS_ANIM.gif');
+    }
+  }
+
+  .leveling-button {
+    .absolute-aligned-x(@width: 98px, @height: 26px, @bottom: 55px);
+    display: none;
+    background: url('@{images_dir}/GIVE_XP_BTN.png');
+    cursor: pointer;
+  }
+
+  &:hover .leveling-button {
+    display: block;
+  }
+
+  .leveling-button:link, .leveling-button:visited {
+    background-position: center -156px;
+  }
+
+  .leveling-button:hover, .leveling-button:visited:hover {
+    background-position: center -182px;
+  }
+
+  .leveling-button:active, .leveling-button:visited:active {
+    background-position: center -208px;
+  }
+
+  [lang=ru] & .leveling-button:link, [lang=ru] & .leveling-button:visited {
+    background-position: center 0;
+  }
+
+  [lang=ru] & .leveling-button:hover, [lang=ru] & .leveling-button:visited:hover {
+    background-position: center -26px;
+  }
+
+  [lang=ru] & .leveling-button:active, [lang=ru] & .leveling-button:visited:active {
+    background-position: center -52px;
+  }
+
+}
+
+#andre .image {
+  background-image: url('@{images_dir}/ANDREW_P.png');
+}
+
+#alex .image {
+  background-image: url('@{images_dir}/ALEX_C.png');
+}
+
+#ivan .image {
+  background-image: url('@{images_dir}/IVAN_L.png');
+}
+
+#ivan {
+  margin-right: 0 !important;
+}
+
+#andre .animation {
+  background: url('@{images_dir}/ANDREW_ANIM.gif');
+}
+
+#alex .animation {
+  background: url('@{images_dir}/ALEX_ANIM.gif');
+}
+
+#ivan .animation {
+  background: url('@{images_dir}/IVAN_ANIM.gif');
+}
+
+#characters-top {
+  margin-top: 30px;
+
+  .sum-exp {
+    text-align: center;
+
+    .value {
+      color: #ff6600;
+      font-size: 1.14em;
+      line-height: 1em !important;
+    }
+
+    .label {
+      font-size: 0.86em;
+    }
+  }
+
+  .sum-exp-block {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1em !important;
+  }
+}
+
+#characters-top-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid white;
+  border-radius: 2px;
+
+  li {
+    height: 40px;
+    line-height: 40px;
+    background: #f1f1f1;
+    width: 220px;
+  }
+
+  li:nth-child(even) {
+    background: #ffffff;
+  }
+
+  .top-element {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .portrait {
+    width: 22px;
+    height: 26px;
+    background: no-repeat center center;
+    margin-right: 10px;
+  }
+
+  .andre .portrait {
+    background-image: url('@{images_dir}/HEAD_ANDREW_P.png');
+  }
+
+  .alex .portrait {
+    background-image: url('@{images_dir}/HEAD_ALEX_C.png');
+  }
+
+  .ivan .portrait {
+    background-image: url('@{images_dir}/HEAD_IVAN_L.png');
+  }
+
+  .place-marker {
+    width: 20px;
+    height: 21px;
+    background: url('@{images_dir}/PLACE.png') no-repeat;
+    margin: 0 10px;
+  }
+
+  .top-2 .place-marker {
+    background-position: center -21px;
+  }
+
+  .top-3 .place-marker {
+    background-position: center -42px;
+  }
+
+  .exp-marker {
+    height: 3px;
+    background: #ff6600;
+    text-shadow: 0 0 1px white;
+  }
+
+  .exp-label {
+    color: #ff6600;
+    text-shadow: 0 0 1px white;
+    margin-left: 10px;
+  }
+}
+
+#share {
+  margin: 30px 0 0 20px;
+  overflow: visible;
+}
+
+#shares-block {
+  width: 140px;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 2px;
+
+  .share-widget {
+    margin-bottom: 10px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+#about-us-text {
+  margin: 40px 0 0 0;
+
+  p {
+    margin-bottom: 1.5em;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
