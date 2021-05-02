@@ -18,8 +18,8 @@ jobs:
       run: npm run build
     - name: Show results
       run: >-
-        env
-        ls -lah
+        env;
+        ls -lah;
         ls -lah "$GITHUB_WORKSPACE"
     - name: Create dist dir
       run: cp -r build "$GITHUB_WORKSPACE/dist"
