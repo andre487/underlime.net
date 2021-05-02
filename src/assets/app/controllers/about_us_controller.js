@@ -47,9 +47,6 @@ function AboutUsController($scope) {
                 });
             }
         });
-
-        var alreadyVote = $.cookie('already_vote');
-        $scope.can_vote = !(alreadyVote);
     }
 
     function onPageDataLoaded(data) {
@@ -63,6 +60,7 @@ function AboutUsController($scope) {
 
         var gameData = data['game'];
         handleGameData(gameData);
+        $scope.can_vote = true;
 
         AppController.documentStatus('ready');
     }
@@ -86,7 +84,7 @@ function AboutUsController($scope) {
             charactersList[i]['max_experience'] = userMaxExp;
             charactersList[i]['level'] = level;
 
-            width = (exp - userPrevExp)*100/userMaxExp;
+            width = (exp - userPrevExp) * 100 / (userMaxExp - userPrevExp);
             charactersList[i]['exp_marker_style'] = {'width': width + '%'};
 
             if (exp > globalMaxExp) {
@@ -97,7 +95,7 @@ function AboutUsController($scope) {
 
         for (i = 0; i < charactersList.length; ++i) {
             id = charactersList[i]['id'];
-            width = charactersList[i]['experience']*35/allExperience;
+            width = charactersList[i]['experience'] * 35 / allExperience;
             charactersList[i]['exp_rating_style'] = {'width': width + '%'};
         }
 
@@ -112,7 +110,6 @@ function AboutUsController($scope) {
 
     function onLevelingButton(elem) {
         $scope.can_vote = false;
-        $.cookie('already_vote', 1, {'path': '/', 'expires': 1});
 
         var id = $(elem).attr('data-character');
         if (!id)
@@ -127,8 +124,19 @@ function AboutUsController($scope) {
             }
         }
 
-        var data = {'id': id};
-        Ajax.postData(dataUrl, data, function(data) {
+        var newData = {'game': {}};
+        for (i = 0; i < charsList.length; ++i) {
+            var curData = charsList[i];
+            newData.game[curData['id']] = $.extend({}, curData, {
+                level: curData.level + 1,
+                exp: curData.experience + 10,
+                max_exp: curData.max_experience + 10,
+                prev_max_exp: curData.max_experience
+            });
+        }
+
+        setTimeout(function() {
+            var data = newData;
             handleGameData(data['game']);
             if (data['game'][id]['level'] > curLevel) {
                 $('#{0} .level-up'.replace('{0}', id)).show();
@@ -136,7 +144,7 @@ function AboutUsController($scope) {
                     $('#{0} .level-up'.replace('{0}', id)).hide();
                 }, 2000);
             }
-        });
+        }, 100);
     }
 }
 

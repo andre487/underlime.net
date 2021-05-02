@@ -40,7 +40,6 @@ const build = gulp.parallel(
                 pipeline(
                     queue(
                         gulp.src(path.join(ASSETS_DIR, 'libs', 'base', 'jquery-1.10.1.min.js')),
-                        gulp.src(path.join(ASSETS_DIR, 'libs', 'base', 'jquery-cookie-1.0.min.js')),
                         gulp.src(path.join(ASSETS_DIR, 'libs', 'base', 'angular-1.1.5.min.js')),
                         pipeline(
                             queue(
