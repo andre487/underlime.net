@@ -1,2 +1,5 @@
 # underlime.net
-underlime.net static version
+
+underlime.net was the Django site for Underlime games
+
+There is the static version of that site
