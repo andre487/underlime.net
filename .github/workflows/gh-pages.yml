@@ -17,7 +17,7 @@ jobs:
     - name: Build site
       run: npm run build
     - name: Publish content to GitHub Pages
-      uses: andre487/publish-to-orphan-gh-pages@a9499036bae1fc091bb563b268291cf23ba841e5
+      uses: andre487/publish-to-orphan-gh-pages@23c9aec4d4b62e6b5db8a5c949ef1c4b95ea6050
       with:
         src_dir: ./build
         dest_dir: .
