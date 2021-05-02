@@ -16,9 +16,16 @@ jobs:
       run: npm ci
     - name: Build site
       run: npm run build
+    - name: Show results
+      run: >-
+        env
+        ls -lah
+        ls -lah "$GITHUB_WORKSPACE"
+    - name: Create dist dir
+      run: cp -r build "$GITHUB_WORKSPACE/dist"
     - name: Publish content to GitHub Pages
       uses: tsunematsu21/actions-publish-gh-pages@v1.0.1
       with:
-        dir: build
+        dir: "$GITHUB_WORKSPACE/dist"
         branch: gh-pages
         token: ${{ secrets.GH_PAGES_TOKEN }}
