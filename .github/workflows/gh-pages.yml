@@ -17,11 +17,6 @@ jobs:
     - name: Build site
       run: npm run build
     - name: Publish content to GitHub Pages
-      uses: andre487/publish-to-orphan-gh-pages@b72845a612f404c2b0ceb8a97c5779b716089db8
+      uses: andre487/publish-to-orphan-gh-pages@ef08e187c1e6e09ca0bb354c3353620156a44151
       with:
-        src_dir: ./build
-        dest_dir: .
-        branch: gh-pages
         deploy_private_key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
-        important_files: '["CNAME", "custom-file.html"]'
-        debug: true
