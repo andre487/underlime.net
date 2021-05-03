@@ -87,13 +87,10 @@ const build = gulp.parallel(
                 pipeline(
                     gulp.src(path.join(ASSETS_DIR, 'css', 'styles.less')),
                     gulpLess(),
-                    gulpCleanCss()
                 ),
-                pipeline(
-                    gulp.src(path.join(THEME_DIR, 'galleria.classic.css')),
-                    gulpCleanCss()
-                )
+                gulp.src(path.join(THEME_DIR, 'galleria.classic.css'))
             ),
+            gulpCleanCss(),
             gulpConcat('bundle.css'),
             gulpCleanDir(path.join(BUILD_DIR, 'assets'), { ext: ['.css'] }),
             gulp.dest(path.join(BUILD_DIR, 'assets'))
