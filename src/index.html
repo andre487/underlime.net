@@ -7,7 +7,7 @@
 
         <meta charset="UTF-8" />
         <meta name="fragment" content="!" />
-        <meta name="description" data-ng-bind="desctiption" content="Underlime games site" id="meta-description" />
+        <meta name="description" content="{{desctiption}}" id="meta-description" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         <link rel="stylesheet" href="/assets/bundle.css?v=1" />
@@ -17,7 +17,7 @@
         <link rel="icon" href="/favicon.ico" type="image/vnd.microsoft.icon" />
         <link rel="shortcut icon" href="/favicon.ico" type="image/vnd.microsoft.icon" />
     </head>
-    <body data-status="loading" data-ng-bind="status">
+    <body data-status="{{status}}">
         <section id="page" data-ng-cloak="">
             <header id="page-header" class="angular-block">
                 <div id="page-header-top">
