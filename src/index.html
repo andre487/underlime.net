@@ -26,12 +26,16 @@
                             <li>
                                 <a data-ng-href="#!/{{lang}}/index.html"
                                    data-ng-bind="messages.our_projects"
-                                   data-ng-class="{true: 'button selected', false:'button'}[activeMenuItem==0]">Projects</a>
+                                   data-ng-class="{true: 'button selected', false:'button'}[activeMenuItem==0]">
+                                    Projects
+                                </a>
                             </li>
                             <li>
                                 <a data-ng-href="#!/{{lang}}/about-us.html"
                                    data-ng-bind="messages.about_us"
-                                   data-ng-class="{true: 'button selected', false:'button'}[activeMenuItem==1]">About us</a>
+                                   data-ng-class="{true: 'button selected', false:'button'}[activeMenuItem==1]">
+                                    About us
+                                </a>
                             </li>
                         </ul>
                     </nav>
@@ -99,14 +103,11 @@
         <div id="contact-popup-wrapper">
             <div id="contact-popup">
                 <!--suppress HtmlDeprecatedAttribute -->
-                <iframe style="width: 100%; height: 100%; border: 0;" frameborder="0" src="https://reformal.ru/widget/112983"></iframe>
+                <iframe style="width: 100%; height: 100%; border: 0;" frameborder="0"
+                        src="https://reformal.ru/widget/112983"></iframe>
             </div>
         </div>
         <div id="fb-root"></div>
-
-        <!-- Yandex.Metrika counter -->
-        <img src="//mc.yandex.ru/watch/22005316" style="position:absolute; left:-9999px;" alt="" />
-        <!-- /Yandex.Metrika counter -->
 
         <script>
             window['static_url'] = '/assets/';
@@ -117,5 +118,37 @@
         <script defer src="https://connect.facebook.net/en_US/all.js" id="facebook-jssdk"></script>
         <script defer src="https://platform.twitter.com/widgets.js" id="twitter-wjs"></script>
         <script defer src="/assets/bundle.js?v=2"></script>
+
+        <!-- Yandex.Metrika counter -->
+        <script type="text/javascript">
+            (function(d, w, c) {
+                (w[c] = w[c] || []).push(function() {
+                    try {
+                        w.yaCounter22005316 = new Ya.Metrika({
+                            id: 22005316,
+                            clickmap: true,
+                            trackLinks: true,
+                            accurateTrackBounce: true,
+                            trackHash: true
+                        });
+                    } catch (e) { }
+                });
+
+                var n = d.getElementsByTagName("script")[0],
+                    s = d.createElement("script"),
+                    f = function() { n.parentNode.insertBefore(s, n); };
+                s.type = "text/javascript";
+                s.async = true;
+                s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+                if (w.opera == "[object Opera]") {
+                    d.addEventListener("DOMContentLoaded", f, false);
+                } else { f(); }
+            })(document, window, "yandex_metrika_callbacks");
+        </script>
+        <noscript>
+            <div><img src="https://mc.yandex.ru/watch/22005316" style="position:absolute; left:-9999px;" alt="" /></div>
+        </noscript>
+        <!-- /Yandex.Metrika counter -->
     </body>
 </html>
