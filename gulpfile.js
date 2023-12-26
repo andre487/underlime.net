@@ -26,7 +26,7 @@ const htmlConfig = {
     minifyCSS: true,
     minifyJS: true,
     removeComments: true,
-    ignoreCustomComments: [/Yandex\.Metrika counter/],
+    ignoreCustomComments: [/Yandex\.Metrika counter/, /Google tag \(gtag\.js\)/],
     removeRedundantAttributes: true,
     removeScriptTypeAttributes: true,
     removeStyleLinkTypeAttributes: true,
