@@ -17,6 +17,6 @@ jobs:
     - name: Build site
       run: npm run build
     - name: Publish content to GitHub Pages
-      uses: andre487/publish-to-orphan-gh-pages@v1.2.0
+      uses: andre487/publish-to-orphan-gh-pages@v1.2.1
       with:
         deploy_private_key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
