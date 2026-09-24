@@ -24,10 +24,14 @@ jobs:
       run: |
         git config user.name github-actions[bot]
         git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+        mkdir -p /tmp/site
+        cp -R build/. /tmp/site/
         git fetch origin gh-pages || true
         git checkout --orphan gh-pages
         git rm -rf .
-        cp -R build/. .
+        find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
+        cp -R /tmp/site/. .
+        touch .nojekyll
         git add --all
         git commit -m "Deploy ${GITHUB_SHA}"
         git push --force "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" gh-pages
