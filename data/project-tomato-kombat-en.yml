@@ -7,6 +7,7 @@ link_fb: ''
 link_mm: ''
 link_ok: https://odnoklassniki.ru/game/tomato_kombat
 link_vk: https://vk.com/tomato_kombat
+link_game: https://tomato-kombat.underlime.net/
 pictures:
   - image: /media/h_540c9b41.jpg
     thumbnail: /media/h_540c9b41_small.jpg
@@ -18,7 +19,6 @@ pictures:
     thumbnail: /media/h_af64572f_small.jpg
 manual: ''
 text: >-
-  <p><a href="https://tomato-kombat.underlime.net/">Play in browser</a></p>
   <p>
     The TOMATO KOMBAT game is the RPG fighting with the clans.
   <p>

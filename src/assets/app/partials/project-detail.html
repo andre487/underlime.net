@@ -1,12 +1,9 @@
 <div id="project-view">
     <section id="project-details" data-ul-tabs="">
         <div id="project-details-top">
-            <div id="project-details-platforms" data-ng-if="link_vk || link_fb || link_ok || link_mm">
-                <span class="label">{{ messages.platforms }}:</span>
-                <a class="platform-link vk-com" data-ng-if="link_vk" data-ng-href="{{link_vk}}"></a>
-                <a class="platform-link facebook-com" data-ng-if="link_fb" data-ng-href="{{link_fb}}"></a>
-                <a class="platform-link ok-ru" data-ng-if="link_ok" data-ng-href="{{link_ok}}"></a>
-                <a class="platform-link mm-ru" data-ng-if="link_mm" data-ng-href="{{link_mm}}"></a>
+            <div id="project-details-platforms" data-ng-if="link_game">
+                <span class="label">{{ messages.current_version }}:</span>
+                <a class="current-version-link" data-ng-href="{{link_game}}" target="_blank" rel="noopener">{{ messages.play }}</a>
             </div>
 
             <ul class="horizontal-menu ul-tabs-switch">
@@ -40,18 +37,8 @@
                         </div>
                     </div>
                     <div class="project-shares-block">
-                        <div class="share-widget" id="fb-like-container">
-                            <div class="fb-like"
-                                 data-send="false"
-                                 data-layout="button_count"
-                                 data-width="450"
-                                 data-show-faces="true"></div>
-                        </div>
                         <div class="share-widget">
                             <div id="vk_like"></div>
-                        </div>
-                        <div class="share-widget">
-                            <div id="g-plus" class="g-plus" data-action="share" data-annotation="bubble" data-height="15"></div>
                         </div>
                     </div>
                     <div class="clear"></div>

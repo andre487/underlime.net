@@ -7,6 +7,10 @@ for (const tag of html.matchAll(/<script\b[^>]*src="https:\/\/[^>]+>/g)) {
     assert.match(tag[0], /\basync\b/);
     assert.doesNotMatch(tag[0], /\bdefer\b/);
 }
+assert.match(html, /openapi\.js\?169/);
+assert.doesNotMatch(html, /facebook\.net|twitter\.com/);
+assert.match(fs.readFileSync('src/assets/app/partials/project-detail.html', 'utf8'), /link_game/);
+assert.doesNotMatch(fs.readFileSync('src/assets/app/partials/project-detail.html', 'utf8'), /fb-like|g-plus/);
 
 for (const timing of ['unavailable', 'early', 'late', 'throws']) {
     const handlers = {};
@@ -27,11 +31,6 @@ for (const timing of ['unavailable', 'early', 'late', 'throws']) {
             init() { initialized.push('vk'); if (timing === 'throws') throw Error('SDK failure'); },
             Widgets: { Like() {} }
         };
-        context.FB = window.FB = {
-            init() { initialized.push('fb'); if (timing === 'throws') throw Error('SDK failure'); },
-            XFBML: { parse() {} }
-        };
-        context.twttr = { widgets: { createShareButton() {} } };
     }
     if (timing === 'early' || timing === 'throws') loadSdks();
     vm.createContext(context);
@@ -42,11 +41,9 @@ for (const timing of ['unavailable', 'early', 'late', 'throws']) {
     if (timing === 'late') {
         loadSdks();
         handlers['#vk-jssdk']();
-        handlers['#facebook-jssdk']();
-        handlers['#twitter-wjs']();
     }
     context.AppController.documentStatus('ready');
     assert.equal(scope.status, 'ready');
-    assert.deepEqual(initialized, timing === 'unavailable' ? [] : ['vk', 'fb']);
+    assert.deepEqual(initialized, timing === 'unavailable' ? [] : ['vk']);
 }
 console.log('Optional scripts: unavailable, early, late and failing SDKs passed.');

@@ -7,6 +7,7 @@ link_fb: ''
 link_mm: ''
 link_ok: https://odnoklassniki.ru/game/tomato_kombat
 link_vk: https://vk.com/tomato_kombat
+link_game: https://tomato-kombat.underlime.net/
 pictures:
   - image: /media/h_540c9b41.jpg
     thumbnail: /media/h_540c9b41_small.jpg
@@ -39,7 +40,6 @@ manual: >-
     Если на ваш вопрос здесь нет ответа или вы нашли в игре ошибку, обращайтесь в официальное сообщество,
   ссылку на которое можно видеть под окном игры.
 text: >-
-  <p><a href="https://tomato-kombat.underlime.net/">Играть в браузере</a></p>
   <p>
     Игра ТОМАТО КОМБАТ — РПГ-файтинг с клановой системой.
     На 146% она состоит из брутальных овощных боев и еще на 30% из пафоса.

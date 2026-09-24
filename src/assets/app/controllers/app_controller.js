@@ -1,6 +1,6 @@
 //Контроллер верхнего уровня
 // noinspection JSCheckFunctionSignatures
-/* globals twttr, VK, FB  */
+/* global VK */
 
 function AppController($scope, $rootElement, $window, $location) {
     'use strict';
@@ -24,27 +24,18 @@ function AppController($scope, $rootElement, $window, $location) {
     }
 
     function initSocNets() {
+        var vkReady = false;
         $('#vk-jssdk').on('load', initVk);
-        $('#facebook-jssdk').on('load', initFacebook);
-        $('#twitter-wjs').on('load', function() {
-            AppController.initShareWidgets();
-        });
         if ($window.VK) initVk();
-        if ($window.FB) initFacebook();
 
         function initVk() {
+            if (vkReady)
+                return;
+
             try {
                 VK.init({ 'apiId': 3760889, 'onlyWidgets': true });
-                if (AppController.initShareWidgets) AppController.initShareWidgets();
-            } catch (e) {
-                console.error(e);
-            }
-        }
-
-        function initFacebook() {
-            try {
-                FB.init({'status': false, 'xfbml': false});
-                if (AppController.initShareWidgets) AppController.initShareWidgets();
+                vkReady = true;
+                AppController.initShareWidgets();
             } catch (e) {
                 console.error(e);
             }
@@ -168,36 +159,15 @@ function AppController($scope, $rootElement, $window, $location) {
     };
 
     AppController.initShareWidgets = function() {
+        var vkLike = document.getElementById('vk_like');
+        if (!vkLike || !$window.VK || !$window.VK.Widgets)
+            return;
+
+        vkLike.innerHTML = '';
         try {
-            // noinspection JSUnresolvedVariable
-            FB.XFBML.parse(document.getElementById('fb-like-container'));
+            $window.VK.Widgets.Like('vk_like', { 'type': 'button', 'height': 20 });
         } catch (e) {
             console.error(e);
-        }
-
-        try {
-            // noinspection JSUnresolvedVariable
-            VK.Widgets.Like('vk_like', { 'type': 'mini', 'height': 20 });
-        } catch (e) {
-            console.error(e);
-        }
-
-        var twitterText;
-        if ($scope.lang == 'ru')
-            twitterText = 'Сайт студии Underlime классный! Посмотрите:';
-        else
-            twitterText = "Underlime's site is AMAZING! Visit it:";
-
-        try {
-            twttr.widgets.createShareButton(
-                $window.location,
-                document.getElementById('twitter-share-container'),
-                function () {
-                },
-                {'text': twitterText}
-            );
-        }
-        catch (e) {
         }
     }
 }

@@ -19,6 +19,8 @@ var Data = {};
             'pictures': 'Картинки',
             'manual': 'Руководство',
             'platforms': 'Платформы',
+            'current_version': 'Текущая версия',
+            'play': 'Играть',
             'release_date': 'Дата релиза',
             'genre': 'Жанр',
             'titles': {
@@ -44,6 +46,8 @@ var Data = {};
             'pictures': 'Pictures',
             'manual': 'Manual',
             'platforms': 'Platforms',
+            'current_version': 'Current version',
+            'play': 'Play',
             'release_date': 'Release date',
             'genre': 'Genre',
             'titles': {
