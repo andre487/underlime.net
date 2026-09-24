@@ -24,16 +24,30 @@ function AppController($scope, $rootElement, $window, $location) {
     }
 
     function initSocNets() {
-        try {
-            VK.init({ 'apiId': 3760889, 'onlyWidgets': true });
-        } catch (e) {
-            console.error(e);
+        $('#vk-jssdk').on('load', initVk);
+        $('#facebook-jssdk').on('load', initFacebook);
+        $('#twitter-wjs').on('load', function() {
+            AppController.initShareWidgets();
+        });
+        if ($window.VK) initVk();
+        if ($window.FB) initFacebook();
+
+        function initVk() {
+            try {
+                VK.init({ 'apiId': 3760889, 'onlyWidgets': true });
+                if (AppController.initShareWidgets) AppController.initShareWidgets();
+            } catch (e) {
+                console.error(e);
+            }
         }
 
-        try {
-            FB.init({'status': false, 'xfbml': false});
-        } catch (e) {
-            console.error(e);
+        function initFacebook() {
+            try {
+                FB.init({'status': false, 'xfbml': false});
+                if (AppController.initShareWidgets) AppController.initShareWidgets();
+            } catch (e) {
+                console.error(e);
+            }
         }
     }
 
